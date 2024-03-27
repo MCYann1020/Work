@@ -2,7 +2,6 @@ const choices = ["Rock", "Paper", "Scissors"]
 const rock = /rock/gi
 const paper = /paper/gi
 const scissor = /scissors/gi
-//const playerSelection = prompt("Enter a word", "Rock")
 let computerScore = 0
 let playerScore = 0
 
@@ -22,17 +21,14 @@ const playRound = (playerSelection, computerSelection) =>{
         playerScore++
         alert("You win! " + playerSelection + " beats " + computerSelection)
     }
-    //console.log(playerScore, computerScore)
-    //if()
 }
-//console.log(playRound(prompt("Enter a word", "Rock"), getComputerChoice()))
 
 function playGame(){
-    playRound(prompt("Enter a word", "Rock"), getComputerChoice())
-    playRound(prompt("Enter a word", "Rock"), getComputerChoice())
-    playRound(prompt("Enter a word", "Rock"), getComputerChoice())
-    playRound(prompt("Enter a word", "Rock"), getComputerChoice())
-    playRound(prompt("Enter a word", "Rock"), getComputerChoice())
+    let i = 5
+    while(i > 0){
+        playRound(prompt("Enter a word", "Rock"), getComputerChoice())
+        i--
+    }
     
     if(playerScore > computerScore){
         alert("YOU WON")
