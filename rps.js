@@ -3,6 +3,9 @@ const btns = document.querySelectorAll("button")
 let computerScore = 0
 let playerScore = 0
 const result = document.getElementById("result")
+const player = document.getElementById("player")
+const computer = document.getElementById("computer")
+const finalResult = document.getElementById("final-score")
 
 const getComputerChoice = () => choices[Math.floor(Math.random() * choices.length)]
 
@@ -14,24 +17,29 @@ const playRound = (playerSelection, computerSelection) =>{
     } else if(playerSelection === "rock" && computerSelection === choices[1] 
         || playerSelection === "paper" && computerSelection === choices[2]
         || playerSelection === "scissors" && computerSelection === choices[0]){
-        computerScore++
         result.textContent = "You Lose! " + computerSelection + " beats " + playerSelection
+        computerScore++
+        computer.innerHTML = computerScore
     } else {
-        playerScore++
         result.textContent = "You win! " + playerSelection + " beats " + computerSelection
+        playerScore++
+        player.innerHTML = playerScore
     }
 }
 
 function playGame(playerChoice){  
     playRound(playerChoice, getComputerChoice())
-   
+
     if(playerScore === 5){
-        alert("YOU WIN")
-    } else if(computerScore === 5){
-        alert("YOU LOSE")
-    } else{
-        playRound(playerChoice, getComputerChoice())
-    }
+        finalResult.textContent = "YOU WIN"
+    } 
+    if (computerScore === 5) {
+        finalResult.textContent = "YOU LOSE"
+    } 
+    
+    //playRound(playerChoice, getComputerChoice())
+
+    console.log(playerScore, computerScore)
 }
 
 btns.forEach(el => {
@@ -40,6 +48,8 @@ btns.forEach(el => {
         playGame(el.id)
      })
 })
+
+
 
 
 
