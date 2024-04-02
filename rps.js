@@ -13,17 +13,17 @@ const playRound = (playerSelection, computerSelection) =>{
     if(playerSelection === "rock" && computerSelection === choices[0] 
         || playerSelection === "paper" && computerSelection === choices[1] 
         || playerSelection === "scissors" && computerSelection === choices[2]){
-        result.textContent = "It's draw"
+            result.textContent = "It's draw"
     } else if(playerSelection === "rock" && computerSelection === choices[1] 
         || playerSelection === "paper" && computerSelection === choices[2]
         || playerSelection === "scissors" && computerSelection === choices[0]){
-        result.textContent = "You Lose! " + computerSelection + " beats " + playerSelection
-        computerScore++
-        computer.innerHTML = computerScore
+            computerScore++
+            computer.innerHTML = computerScore
+            result.textContent = "You Lose! " + computerSelection + " beats " + playerSelection
     } else {
-        result.textContent = "You win! " + playerSelection + " beats " + computerSelection
         playerScore++
         player.innerHTML = playerScore
+        result.textContent = "You win! " + playerSelection + " beats " + computerSelection
     }
 }
 
@@ -32,12 +32,9 @@ function playGame(playerChoice){
 
     if(playerScore === 5){
         finalResult.textContent = "YOU WIN"
-    } 
-    if (computerScore === 5) {
+    } else if (computerScore === 5) {
         finalResult.textContent = "YOU LOSE"
     } 
-    
-    //playRound(playerChoice, getComputerChoice())
 
     console.log(playerScore, computerScore)
 }
