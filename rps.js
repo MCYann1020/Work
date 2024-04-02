@@ -1,11 +1,11 @@
 const choices = ["Rock", "Paper", "Scissors"]
 const btns = document.querySelectorAll("button")
-let computerScore = 0
-let playerScore = 0
 const result = document.getElementById("result")
 const player = document.getElementById("player")
 const computer = document.getElementById("computer")
 const finalResult = document.getElementById("final-score")
+let computerScore = 0
+let playerScore = 0
 
 const getComputerChoice = () => choices[Math.floor(Math.random() * choices.length)]
 
