@@ -3,9 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="rps.css" rel="stylesheet">
     <title>Document</title>
 </head>
 <body>
+    <div class="button-case">
+        <button id="rock">ROCK</button>
+        <button id="paper">PAPER</button>
+        <button id="scissors">SCISSORS</button>
+    </div>
+
+    <div><span id="result"></span></div>
+
+    <div class="table-score">
+        <div class="line"><p>PLAYER SCORE</p></div>
+        <div class="line"><p>COMPUTER SCORE</p></div>
+        <div class="line"><p id="player"></p></div>
+        <div class="line"><p id="comp"></p></div>
+        <div class="line final-score"><p id="final-score"></p></div>
+    </div>
+    
     <script src="rps.js"></script>
 </body>
 </html>

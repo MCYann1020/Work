@@ -1,44 +1,47 @@
 const choices = ["Rock", "Paper", "Scissors"]
-const rock = /rock/gi
-const paper = /paper/gi
-const scissor = /scissors/gi
+const btns = document.querySelectorAll("button")
 let computerScore = 0
 let playerScore = 0
+const result = document.getElementById("result")
 
 const getComputerChoice = () => choices[Math.floor(Math.random() * choices.length)]
 
 const playRound = (playerSelection, computerSelection) =>{
-    if(playerSelection.match(rock) && computerSelection === choices[0] 
-        || playerSelection.match(paper) && computerSelection === choices[1] 
-        || playerSelection.match(scissor) && computerSelection === choices[2]){
-        alert("It's draw") 
-    } else if(playerSelection.match(rock) && computerSelection === choices[1] 
-        || playerSelection.match(paper) && computerSelection === choices[2]
-        || playerSelection.match(scissor) && computerSelection === choices[0]){
+    if(playerSelection === "rock" && computerSelection === choices[0] 
+        || playerSelection === "paper" && computerSelection === choices[1] 
+        || playerSelection === "scissors" && computerSelection === choices[2]){
+        result.textContent = "It's draw"
+    } else if(playerSelection === "rock" && computerSelection === choices[1] 
+        || playerSelection === "paper" && computerSelection === choices[2]
+        || playerSelection === "scissors" && computerSelection === choices[0]){
         computerScore++
-        alert("You Lose! " + computerSelection + " beats " + playerSelection)
+        result.textContent = "You Lose! " + computerSelection + " beats " + playerSelection
     } else {
         playerScore++
-        alert("You win! " + playerSelection + " beats " + computerSelection)
+        result.textContent = "You win! " + playerSelection + " beats " + computerSelection
     }
 }
 
-function playGame(){
-    let i = 5
-    while(i > 0){
-        playRound(prompt("Enter a word", "Rock"), getComputerChoice())
-        i--
-    }
-    
-    if(playerScore > computerScore){
-        alert("YOU WON")
-    } else if(computerScore > playerScore){
+function playGame(playerChoice){  
+    playRound(playerChoice, getComputerChoice())
+   
+    if(playerScore === 5){
+        alert("YOU WIN")
+    } else if(computerScore === 5){
         alert("YOU LOSE")
     } else{
-        alert("DRAW")
+        playRound(playerChoice, getComputerChoice())
     }
-
-    console.log(playerScore, computerScore)
 }
 
-console.log(playGame())
+btns.forEach(el => {
+    el.addEventListener("click", () =>{
+        console.log(el.id)
+        playGame(el.id)
+     })
+})
+
+
+
+
+//console.log(playGame())

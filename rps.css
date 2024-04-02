@@ -1,0 +1,53 @@
+*, ::after, ::before{
+    box-sizing: border-box;
+    margin: 0;
+}
+
+/*
+@media screen and (max-width: 480px){
+    .button-case{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        margin: 20%;
+        gap: 20px;
+    }
+}
+*/
+
+button{
+    padding: 20px;
+    cursor: pointer;
+}
+
+.button-case{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.table-score{
+    border: 2px solid black;
+    margin: 50px;
+    height: 240px;
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    grid-template-rows: 49px 109px 79px;
+}
+.line{
+    border: 1px solid black;
+    padding: auto;
+}
+.final-score{
+    width: 78.5vw;
+}
+
+p{
+    text-align: center;
+}
+
